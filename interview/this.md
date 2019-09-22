@@ -238,6 +238,13 @@ obj.fn2() //this.fn1 is not a function
    b.call(obj,1,2) // 3
    ```
 
+   call与apply的性能比较：**call比apply的性能要好,可以理解为：内部少了一次将 apply 第二个参数解构的操作**
+
+   ```js
+   let params = [1,2,3,4]
+   xx.call(obj, ...params)
+   ```
+
    **bind**：可以看出与call类似的语法，但是需要调用，因为**bind 是创建一个新的函数，我们必须要手动去调用**。
 
    ```js
