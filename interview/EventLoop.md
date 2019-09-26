@@ -14,7 +14,7 @@
 
 6. 实现方式：Event Loop
 
-### Event Loop
+### Event Loop（浏览器）
 
 1. 什么是EventLoop：事件循环，JS实现异步的解决方案。
 
@@ -45,12 +45,192 @@
 
 ​	
 
-​	
+### Event Loop（Node.js）
+
+1. setImmediate，setTimeout/setInterval，nextTick的执行顺序
+
+   ```js
+   setImmediate(_=>{
+       console.log('setImmediate')
+   })
+   
+   setTimeout(_=>{
+        console.log('setTimeout')
+   },0)
+   
+   process.nextTick(_=>{
+        console.log('process.nextTick')
+   })
+   
+   // 执行顺序是 nextTick timeOut immediate
+   ```
+
+### 常见题型整理 
+
+```js
+console.log('script start')
+
+async function async1() {
+  await async2()
+  console.log('async1 end')
+}
+async function async2() {
+  console.log('async2 end')
+}
+async1()
+
+setTimeout(function() {
+  console.log('setTimeout')
+}, 0)
+
+new Promise(resolve => {
+  console.log('Promise')
+  resolve()
+})
+  .then(function() {
+    console.log('promise1')
+  })
+  .then(function() {
+    console.log('promise2')
+  })
+
+console.log('script end')
+// script start -> async2 end -> Promise -> script end -> async1 end -> promise1 -> promise2 -> setTimeout
+```
 
 
 
+```js
+async function async1() {
+    console.log('async1 start');
+    await async2();
+    console.log('async1 end');
+}
+async function async2() {
+    console.log('async2');
+}
+console.log('script start');
+setTimeout(function() {
+    console.log('setTimeout');
+}, 0)
+async1();
+new Promise(function(resolve) {
+    console.log('promise1');
+    resolve();
+}).then(function() {
+    console.log('promise2');
+});
+console.log('script end');
+// script start -> async1 start -> async2 -> promise1 -> script end -> async1 end -> promise2 -> setTimeout
+```
 
 
 
+```js
+async function async1() {
+    console.log('async1 start');
+    await async2();
+    console.log('async1 end');
+}
+async function async2() {
+    //async2做出如下更改：
+    new Promise(function(resolve) {
+    console.log('promise1');
+    resolve();
+}).then(function() {
+    console.log('promise2');
+    });
+}
+console.log('script start');
 
-​	
+setTimeout(function() {
+    console.log('setTimeout');
+}, 0)
+async1();
+
+new Promise(function(resolve) {
+    console.log('promise3');
+    resolve();
+}).then(function() {
+    console.log('promise4');
+});
+
+console.log('script end');
+// script start -> async1 start -> promise1 -> promise3 -> script end -> promise2 -> async1 end -> promise4 -> setTimeout
+```
+
+
+
+```js
+async function async1() {
+    console.log('async1 start');
+    await async2();
+    //更改如下：
+    setTimeout(function() {
+        console.log('setTimeout1')
+    },0)
+}
+async function async2() {
+    //更改如下：
+	setTimeout(function() {
+		console.log('setTimeout2')
+	},0)
+}
+console.log('script start');
+
+setTimeout(function() {
+    console.log('setTimeout3');
+}, 0)
+async1();
+
+new Promise(function(resolve) {
+    console.log('promise1');
+    resolve();
+}).then(function() {
+    console.log('promise2');
+});
+console.log('script end');
+// 核心：在微任务中加入宏任务的异步代码时，还是优先promise。并且按setTimeout的顺序排列。
+// script start -> async1 start -> promise1 -> script end -> promise2 -> setTimeout3 -> setTimeout2  -> setTimeout1
+```
+
+
+
+```js
+async function a1 () {
+    console.log('a1 start')
+    await a2()
+    console.log('a1 end')
+}
+async function a2 () {
+    console.log('a2')
+}
+
+console.log('script start')
+
+setTimeout(() => {
+    console.log('setTimeout')
+}, 0)
+
+Promise.resolve().then(() => {
+    console.log('promise1')
+})
+
+a1()
+
+let promise2 = new Promise((resolve) => {
+    resolve('promise2.then')
+    console.log('promise2')
+})
+
+promise2.then((res) => {
+    console.log(res)
+    Promise.resolve().then(() => {
+        console.log('promise3')
+    })
+})
+console.log('script end')
+// 注意 promise1的打印是优先于a1()，所以promise1会先被推入到队列。
+// script start -> a1 start -> a2 -> promise2 -> script end -> promise1 -> a1 end -> promise2.then -> promise3 -> setTimeout
+```
+
