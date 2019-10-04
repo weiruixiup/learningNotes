@@ -55,7 +55,7 @@
 
 4. 箭头函数中的this：**箭头函数并没有this**。
 
-   **箭头函数的this是它上级第一个`<u>普通</u>`函数所指向的this，如果没有普通函数，那么this指向window。**
+   箭头函数的this是它**上级第一个普通函数**所指向的this，如果没有普通函数，那么this指向window。
 
    ```js
    var name = 'up'
@@ -145,7 +145,7 @@ obj.fn2() //this.fn1 is not a function
    obj.fn2() //weiruixi
    ```
 
-   分析：**在 fn2 中，首先设置 `var _this = this;`，这里的 `this` 是调用 `fn2` 的对象 a，为了防止在 `fn2` 中的 setTimeout 被 window 调用而导致的在 setTimeout 中的 this 为 window。我们将 `this(指向变量 a)` 赋值给一个变量 `_this`，这样，在 `fn2` 中我们使用 `_this` 就是指向对象 a 了**。
+   分析：**在 fn2 中，首先设置 `var _this = this;`，这里的 `this` 是调用 `fn2` 的对象obj，为了防止在 `fn2` 中的 setTimeout 被 window 调用而导致的在 setTimeout 中的 this 为 window。我们将 `this(指向变量 obj)` 赋值给一个变量 `_this`，这样，在 `fn2` 中我们使用 `_this` 就是指向对象 obj 了**。
 
 3. 使用apply，call，bind。
 
@@ -275,3 +275,10 @@ fn.bind().bind(a)() // => window
 
 1. 对于**new**的方式来说，this绑定在被实例的对象上，**不会被改变指向**。
 2. `new` 的方式优先级最高，接下来是 `bind` 这些函数，然后是 `obj.foo()` 这种调用方式，最后是 `foo` 这种调用方式，同时，箭头函数的 `this` 一旦被绑定，就不会再被任何方式所改变。
+
+
+
+**手写apply，call，bind函数**
+
+实现这个函数的基本思想是：不传入第一个参数时，指向的是window；改变this的指向，新的对象可以执行方法，并且能接受参数。
+
