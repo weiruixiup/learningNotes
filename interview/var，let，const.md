@@ -65,7 +65,7 @@
    console.log(window.bb); // undefined
    ```
 
-   ![](./../assets/learningNotes\assets\const，let.png)
+   ![](./../assets/const，let.png)
 
    可以看到 let 和 const 声明的全局变量并没有在全局对象中，只是一个块级作用域（Script）中
 
