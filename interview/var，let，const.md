@@ -78,3 +78,5 @@
    console.log(aa); // 1
    console.log(bb); // 2
    ```
+
+   const创建的一般是不可修改，只能修改const定义的是对象并只是修改对象的属性。
