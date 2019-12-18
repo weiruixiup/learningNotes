@@ -49,7 +49,7 @@ UI = f (data)
    });
    ```
 
-2. ref：三种方式
+2. ref：创建方式
 
    ```jsx
    import React, {Component} from 'react';
@@ -82,4 +82,163 @@ UI = f (data)
    
    ```
 
+   ```jsx
+   // 首先明确一个概念：class组件是component组件，function组件是pureComponent。pureComponent是不存在实例的，没有this，class组件是存在的。
+   // eg1:在class组件中使用function组件的ref
    
+   // 父组件 class组件： ref必须要使用createRef()去创建，调用时也要存在this.testRef.current
+   import React, {Component, createRef} from 'react';
+   import Test from './hehe';
+   
+   class Index extends Component {
+       componentWillMount() {
+           this.testRef = createRef();
+       }
+   
+   
+       componentDidMount() {
+           console.log(this.testRef);
+       }
+   
+   
+       render() {
+           return (
+               <>
+                   <div> 这是主页</div>
+                   <Test ref={this.testRef} />
+               </>
+           );
+       }
+   }
+   
+   export default Index;
+   
+   // 子组件 function组件：使用forwardRef对整个组件包裹，使其存在实例；function组件接受两个参数，分别是props与ref，需要给所需要暴露的东西加上ref={ref}
+   
+   import React, {forwardRef} from 'react';
+   
+   
+   function Index(props, ref) {
+   
+       function testFn() {
+           console.log(1);
+       }
+   
+       return (
+           <>
+               <div onClick={testFn} ref={ref}>123</div>
+           </>
+       );
+   }
+   
+   export default forwardRef(Index);
+   
+   ```
+
+   ```jsx
+   // eg2:在function组件中使用class组件的ref
+   // 父组件：function组件，需要将整个组件用forwardRef起来，并且使用useRef来实例ref
+   import React, {useEffect, useRef, forwardRef} from 'react';
+   import Test from './hehe';
+   
+   
+   function Index(props, ref) {
+   
+       const testRef = useRef(null);
+   
+       useEffect(_ => {
+           console.log(testRef);
+       }, []);
+   
+   
+       return (
+           <>
+               <div ref={ref}>父组件是function组件</div>
+               <Test ref={testRef} />
+           </>
+       );
+   }
+   
+   export default forwardRef(Index);
+   
+   
+   // 子组件：class组件
+   
+   import React, {Component} from 'react';
+   
+   class Test extends Component {
+   
+       state = {
+           a: 1 
+       };
+   
+   
+       render() {
+           return (
+               <>
+                   <div>子组件是class组件</div>
+               </>
+           );
+       }
+   }
+   
+   export default Test;
+   
+   
+   ```
+
+   ```jsx
+   // eg3:在function组件中使用function组件的ref
+   
+   // 父组件：function组件,只需要使用useRef来实例ref
+   import React, {useEffect, useRef} from 'react';
+   import Test from './hehe';
+   
+   
+   function Index(props, ref) {
+   
+       const testRef = useRef(null);
+   
+       useEffect(_ => {
+           console.log(testRef);
+       }, []);
+   
+   
+       return (
+           <>
+               <div>父组件是function组件</div>
+               <Test ref={testRef} />
+           </>
+       );
+   }
+   
+   export default Index;
+   
+   // 子组件：function组件，需要用forwardRef()将整个组件包裹，并且使用useImperativeHandle()方法抛出需要导出的内容
+   // useImperativeHandle方法接收三个参数，第一个是ref，第二个是一个函数，需要return出导出的内容，第三个是依赖
+   
+   import React, {forwardRef, useImperativeHandle} from 'react';
+   
+   function Test(props, ref) {
+   
+       useImperativeHandle(ref, _ => ({
+           testTn
+       }),[]);
+   
+       const testTn = () => {
+           console.log(1);
+       };
+   
+       return (
+           <>
+               <div onClick={testTn}>这是子组件</div>
+           </>
+       );
+   }
+   
+   export default forwardRef(Test);
+   
+   ```
+
+   
+
