@@ -1,0 +1,372 @@
+{
+  "errors": [
+    "./src/index.js\nModule not found: Error: Can't resolve 'postcss-loader' in '/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts'\nresolve 'postcss-loader' in '/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts'\n  Parsed request is a module\n  using description file: /Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/package.json (relative path: .)\n    resolve as module\n      /Users/up/Desktop/learningNotes/webpack/node_modules doesn't exist or is not a directory\n      /Users/up/Desktop/learningNotes/node_modules doesn't exist or is not a directory\n      /Users/up/Desktop/node_modules doesn't exist or is not a directory\n      /Users/node_modules doesn't exist or is not a directory\n      /node_modules doesn't exist or is not a directory\n      looking for modules in /Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules\n        using description file: /Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/package.json (relative path: ./node_modules)\n          using description file: /Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/package.json (relative path: ./node_modules/postcss-loader)\n            no extension\n              /Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/postcss-loader doesn't exist\n      looking for modules in /Users/up/node_modules\n        using description file: /Users/up/package.json (relative path: ./node_modules)\n          using description file: /Users/up/package.json (relative path: ./node_modules/postcss-loader)\n            no extension\n              /Users/up/node_modules/postcss-loader doesn't exist\n            .js\n              /Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/postcss-loader.js doesn't exist\n            .js\n              /Users/up/node_modules/postcss-loader.js doesn't exist\n            .json\n              /Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/postcss-loader.json doesn't exist\n            .json\n              /Users/up/node_modules/postcss-loader.json doesn't exist\n            as directory\n              /Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/postcss-loader doesn't exist\n            as directory\n              /Users/up/node_modules/postcss-loader doesn't exist\n[/Users/up/Desktop/learningNotes/webpack/node_modules]\n[/Users/up/Desktop/learningNotes/node_modules]\n[/Users/up/Desktop/node_modules]\n[/Users/node_modules]\n[/node_modules]\n[/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/postcss-loader]\n[/Users/up/node_modules/postcss-loader]\n[/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/postcss-loader.js]\n[/Users/up/node_modules/postcss-loader.js]\n[/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/postcss-loader.json]\n[/Users/up/node_modules/postcss-loader.json]\n @ ./src/index.js 1:0-21"
+  ],
+  "warnings": [],
+  "version": "4.42.1",
+  "hash": "bda02dbec477b39544c3",
+  "time": 566,
+  "builtAt": 1586851289608,
+  "publicPath": "",
+  "outputPath": "/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/dist",
+  "assetsByChunkName": {
+    "main": "main.js"
+  },
+  "assets": [
+    {
+      "name": "main.js",
+      "size": 1075,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "info": {},
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "main.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "main.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "size": 46,
+      "names": [
+        "main"
+      ],
+      "files": [
+        "main.js"
+      ],
+      "hash": "e8e2aedfe843bb6847e1",
+      "siblings": [],
+      "parents": [],
+      "children": [],
+      "childrenByOrder": {},
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_babel-loader@8.1.0@babel-loader/lib/index.js??ref--9!/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/src/index.js",
+          "name": "./src/index.js",
+          "index": 0,
+          "index2": 0,
+          "size": 46,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "profile": {
+            "factory": 51,
+            "building": 330
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "type": "single entry",
+              "userRequest": "./src/index.js",
+              "loc": "main"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": [],
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is an entry point"
+          ],
+          "depth": 0,
+          "source": "import './index.css';\nconsole.log('weiruixi');"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "module": "",
+          "moduleIdentifier": "",
+          "moduleName": "",
+          "loc": "main",
+          "request": "./src/index.js",
+          "reasons": []
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_babel-loader@8.1.0@babel-loader/lib/index.js??ref--9!/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/src/index.js",
+      "name": "./src/index.js",
+      "index": 0,
+      "index2": 0,
+      "size": 46,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "issuerPath": null,
+      "profile": {
+        "factory": 51,
+        "building": 330
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": null,
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "type": "single entry",
+          "userRequest": "./src/index.js",
+          "loc": "main"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": [],
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is an entry point"
+      ],
+      "depth": 0,
+      "source": "import './index.css';\nconsole.log('weiruixi');"
+    }
+  ],
+  "filteredModules": 0,
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 2,
+      "debug": false
+    }
+  },
+  "children": [
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "",
+      "outputPath": "/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/dist",
+      "assetsByChunkName": {
+        "HtmlWebpackPlugin_0": "__child-HtmlWebpackPlugin_0"
+      },
+      "assets": [
+        {
+          "name": "__child-HtmlWebpackPlugin_0",
+          "size": 4150,
+          "chunks": [
+            0
+          ],
+          "chunkNames": [
+            "HtmlWebpackPlugin_0"
+          ],
+          "info": {},
+          "emitted": false
+        }
+      ],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "HtmlWebpackPlugin_0": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "__child-HtmlWebpackPlugin_0"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "HtmlWebpackPlugin_0": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "__child-HtmlWebpackPlugin_0"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "chunks": [
+        {
+          "id": 0,
+          "rendered": true,
+          "initial": true,
+          "entry": true,
+          "size": 473,
+          "names": [
+            "HtmlWebpackPlugin_0"
+          ],
+          "files": [
+            "__child-HtmlWebpackPlugin_0"
+          ],
+          "hash": "ff18b0fd17bc4709b476",
+          "siblings": [],
+          "parents": [],
+          "children": [],
+          "childrenByOrder": {},
+          "modules": [
+            {
+              "id": 0,
+              "identifier": "/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/lib/loader.js!/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/default_index.ejs",
+              "name": "./node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/lib/loader.js!./node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/default_index.ejs",
+              "index": 0,
+              "index2": 0,
+              "size": 473,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [
+                0
+              ],
+              "issuer": null,
+              "issuerId": null,
+              "issuerName": null,
+              "issuerPath": null,
+              "profile": {
+                "factory": 23,
+                "building": 15
+              },
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": null,
+                  "module": null,
+                  "moduleName": null,
+                  "type": "single entry",
+                  "userRequest": "/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/lib/loader.js!/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/default_index.ejs",
+                  "loc": "HtmlWebpackPlugin_0"
+                }
+              ],
+              "usedExports": true,
+              "providedExports": null,
+              "optimizationBailout": [
+                "ModuleConcatenation bailout: Module is not an ECMAScript module"
+              ],
+              "depth": 0,
+              "source": "var _ = __non_webpack_require__(\"/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_lodash@4.17.15@lodash/lodash.js\");module.exports = function (templateParams) { with(templateParams) {return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n<html>\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <title>' +\n((__t = ( htmlWebpackPlugin.options.title )) == null ? '' : __t) +\n'</title>\\n  </head>\\n  <body>\\n  </body>\\n</html>';\nreturn __p\n})();}}"
+            }
+          ],
+          "filteredModules": 0,
+          "origins": [
+            {
+              "module": "",
+              "moduleIdentifier": "",
+              "moduleName": "",
+              "loc": "HtmlWebpackPlugin_0",
+              "request": "/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/lib/loader.js!/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/default_index.ejs",
+              "reasons": []
+            }
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/lib/loader.js!/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/default_index.ejs",
+          "name": "./node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/lib/loader.js!./node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/default_index.ejs",
+          "index": 0,
+          "index2": 0,
+          "size": 473,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "profile": {
+            "factory": 23,
+            "building": 15
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "type": "single entry",
+              "userRequest": "/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/lib/loader.js!/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_html-webpack-plugin@4.0.4@html-webpack-plugin/default_index.ejs",
+              "loc": "HtmlWebpackPlugin_0"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 0,
+          "source": "var _ = __non_webpack_require__(\"/Users/up/Desktop/learningNotes/webpack/AdvancedConcepts/node_modules/_lodash@4.17.15@lodash/lodash.js\");module.exports = function (templateParams) { with(templateParams) {return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n<html>\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <title>' +\n((__t = ( htmlWebpackPlugin.options.title )) == null ? '' : __t) +\n'</title>\\n  </head>\\n  <body>\\n  </body>\\n</html>';\nreturn __p\n})();}}"
+        }
+      ],
+      "filteredModules": 0,
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "HtmlWebpackCompiler"
+    }
+  ]
+}
