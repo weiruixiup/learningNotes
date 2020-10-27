@@ -59,7 +59,7 @@ module.exports = {
             {
                 test: /\.(scss)$/,
                 // npm install --save-dev css-loader
-                // 处理css 一般都会将 css-loader style -loader混合使用
+                // 处理css 一般都会将 css-loader style-loader混合使用
                 // css-loader的作用是处理css之间的关系 比如在css文件中引入某css:@import './index.css'
                 // style-loader 作用是将css-loader处理的文件挂载到head里面的style
 
@@ -145,7 +145,7 @@ module.exports = {
         open: true,
         // 设置端口
         port: 8001,
-        // 代理
+        // 代理 将/api开头替换成http://localhost:3000
         proxy: {
             '/api': {
                 target: 'http://localhost:3000',

@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "webpack"
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
