@@ -95,7 +95,49 @@ let weiruixi: IPerson = {
     age: 24
 };
 
-// 首先按照普通函数的写法写即可，然后后面加上每个参数的类型，并且加上返回值的类型
+
+// class
+// 1,public private protected readonly static
+// 默认所有的属性前面都加上了 public
+// private定义的属性只可以在类的本身中使用
+// static静态属性 在实例属性上使用 this.前缀来访问属性一样，这里我们使用 `${实例}`.来访问静态属性。
+class Person {
+    readonly onlyStr: string = 'weiruixi';
+    private privateStr: string;
+    protected name: string;
+    static staticObj: { x: 0, y: 0 };
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    staticFn() {
+        console.log(Person.staticObj.x); // static静态属性 可以替换this.
+    }
+}
+
+let person = new Person('up');
+console.log(person.onlyStr = 'weiruixiUp'); // 错误 readonly属性
+
+class Employee extends Person {
+    private department: string;
+
+    constructor(name: string, department: string) {
+        super(name);
+        this.department = department;
+    }
+
+    public getElevatorPitch() {
+        return `Hello, my name is ${this.name} and I work in ${this.department}.`;
+    }
+}
+
+let howard = new Employee('Howard', 'Sales');
+console.log(howard.getElevatorPitch());
+console.log(howard.name); // 错误 reason：protected成员在派生类中仍然可以访问；上面方法打印是有name属性的，是因为在Employee中继承了父类Person的name，但是直接使用，就跳出了Employee。
+
+
+// 首先按照普通函数的写法写即可，然后后面加上每个参数的类型，并且加上返回值的类型，也会自动推断出返回类型
 // 也支持?:可选参数的写法，但是可选参数必须放在最后面
 // 可选参数也支持ES6写法 z=0
 
