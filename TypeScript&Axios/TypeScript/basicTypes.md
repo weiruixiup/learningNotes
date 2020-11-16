@@ -69,9 +69,11 @@ let n: null = null
 let brother: any = 'xiaokang'
 let myBro: number = (brother as string).length
  
-// 联合类型：创建一个可以是多种类型的变量（用|连接两种类型）
+// 联合类型：创建一个可以是多种类型的变量（用|连接两种类型）或者
 let numberOrString: number | string = 39
 numberOrString = '39'
+
+// 交叉类型：&
 
 // 接口 Interface
 // 1，对对象的形状进行描述
@@ -161,6 +163,109 @@ const addFn = (x: number, y: number, z?: number): number => {
     }
 };
 addFn(4, 3);
+
+// class 与 interface的复合使用
+// implements
+interface Radio {
+    switchRadio(trigger: boolean): void
+}
+
+interface Battery {
+    checkBatteryStatus(): void
+}
+
+class Car implements Radio {
+    switchRadio(trigger: boolean): void {
+    }
+}
+
+class CellPhone implements Radio, Battery {
+    switchRadio(trigger: boolean): void {
+    }
+
+    checkBatteryStatus(): void {
+    }
+}
+
+// 改造写法 CellPhones等价CellPhone
+interface RadioWithBattery extends Radio {
+    checkBatteryStatus(): void
+}
+
+class CellPhones implements RadioWithBattery {
+    switchRadio(trigger: boolean): void {
+    }
+
+    checkBatteryStatus(): void {
+    }
+}
+
+
+// 泛型：定义函数或接口或类的时候，使用时再制定类型
+
+function echo<T>(arg: T): T {
+    return arg;
+}
+
+const result1 = echo(3);
+const result2 = echo('3');
+
+function swap<T, U>(tuple: [T, U]): [U, T] {
+    return [tuple[1], tuple[0]];
+}
+
+const result3 = ['string', 1];
+
+
+// 约束泛型 只可以传人指定类型的泛型 函数中使用
+function echoWithArr<T>(arg: T[]): T[] {
+    console.log(arg.length);
+    return arg;
+}
+
+const arrs = echoWithArr([1, 2, 3]);
+
+// 约束泛型 extends 关键字
+interface IWithLength {
+    length: number
+}
+
+function echoWithLength<T extends IWithLength>(arg: T): T {
+    console.log(arg.length);
+    return arg;
+}
+
+const str = echoWithLength('str');
+const obj = echoWithLength({length: 10});
+const arr = echoWithLength([123]);
+
+
+// 泛型在类和接口中使用
+class Queue<T> {
+    private data = [];
+
+    push(item: T) {
+        return this.data.push(item);
+    }
+
+    pop(): T {
+        return this.data.shift();
+    }
+}
+
+const queue = new Queue();
+
+interface KeyPair<T, U> {
+    key: T
+    value: U
+}
+
+let kp1: KeyPair<number, string> = {key: 1, value: 'string'};
+let kp2: KeyPair<string, number> = {key: 'str', value: 2};
+
+
+// 申明文件declaration 一般会是.d.ts文件结尾
+
 
 ```
 
