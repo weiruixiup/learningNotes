@@ -62,7 +62,7 @@
         console.log('process.nextTick')
    })
    
-   // 执行顺序是 nextTick timeOut immediate
+   // 执行顺序是 nextTick immediate timeOut
    ```
 
 ### 常见题型整理 
